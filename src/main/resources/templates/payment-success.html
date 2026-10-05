@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Successful</title>
+</head>
+
+<body>
+
+<h1>Payment Successful</h1>
+
+<p>
+    Customer:
+    <span th:text="${payment.customerName}"></span>
+</p>
+
+<p>
+    Email:
+    <span th:text="${payment.email}"></span>
+</p>
+
+<p>
+    Amount:
+    $<span th:text="${payment.amount}"></span>
+</p>
+
+<p>
+    Status:
+    <span th:text="${payment.status}"></span>
+</p>
+
+<a th:href="@{/}">
+    Make Another Payment
+</a>
+
+</body>
+</html>

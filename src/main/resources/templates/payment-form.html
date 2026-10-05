@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Online Payment</title>
+</head>
+
+<body>
+
+<h1>Secure Online Payment</h1>
+
+<form th:action="@{/payment}"
+      th:object="${payment}"
+      method="post">
+
+    <div>
+        <label>Customer Name:</label>
+        <input type="text"
+               th:field="*{customerName}">
+        <p th:if="${#fields.hasErrors('customerName')}"
+           th:errors="*{customerName}"></p>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Email:</label>
+        <input type="email"
+               th:field="*{email}">
+        <p th:if="${#fields.hasErrors('email')}"
+           th:errors="*{email}"></p>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Payment Amount:</label>
+        <input type="number"
+               step="0.01"
+               th:field="*{amount}">
+        <p th:if="${#fields.hasErrors('amount')}"
+           th:errors="*{amount}"></p>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Payment Token:</label>
+        <input type="text"
+               th:field="*{paymentToken}">
+        <p th:if="${#fields.hasErrors('paymentToken')}"
+           th:errors="*{paymentToken}"></p>
+    </div>
+
+    <br>
+
+    <button type="submit">
+        Submit Payment
+    </button>
+
+</form>
+
+</body>
+</html>
